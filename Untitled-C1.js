@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+  "https://2024-03-06.currency-api.pages.dev/v1/currencies";
 
   const dropdowns = document.querySelectorAll(".dropdown select");
   const fromCurr = document.querySelector(".from select");
@@ -37,7 +37,6 @@ const BASE_URL =
     let amountVal = amount.value;
 
     const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`; 
-
     let response = await fetch(URL);
     let data = await response.json();
     let rate = data[toCurr.value.toLowerCase()];
