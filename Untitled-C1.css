@@ -54,7 +54,7 @@ form input{
     width: 6rem;
     border: 1px solid lightgray;
     border-radius: 0.5rem;
-    background-color:0;
+    background-color:#87A2FF;
 }
 .dropdown i {
     font-size: 1.5rem;
@@ -78,3 +78,6 @@ form button{
     cursor: pointer;
 }
 
+select{
+    background-color: #87A2FF;
+}
