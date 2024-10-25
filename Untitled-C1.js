@@ -1,5 +1,5 @@
-const BASE_URL =
-  "https://2024-03-06.currency-api.pages.dev/v1/currencies";
+const BASE_URL = "https://cdn.jsdeliver.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
+ 
 
   const dropdowns = document.querySelectorAll(".dropdown select");
   const fromCurr = document.querySelector(".from select");
@@ -34,14 +34,17 @@ const BASE_URL =
 
   const updadteExchangeRate = async() =>{
     let amount = document.querySelector(".amount input");
-    let amountVal = amount.value;
+    let amountVal = parseFloat(amount.value);
 
-    const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`; 
+    const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`; 
     let response = await fetch(URL);
     let data = await response.json();
-    let rate = data[toCurr.value.toLowerCase()];
+    let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
 
-    let finalAmount = amountVal*rate;
+    let finalAmount = amountVal * rate;
+    let conversionRate = document.getElementById("conversionRate");
+    conversionRate.innerText = `1 ${fromCurr.value} = ${rate} ${toCurr.value}`
+    let msg = document.getElementById("result");
     msg.innerText = `${amountVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
   }
 
