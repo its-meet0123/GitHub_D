@@ -1,4 +1,4 @@
-const BASE_URL = "https://cdn.jsdeliver.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
+const BASE_URL = "https://latest.currency-api.pages.dev/v1/currencies";
  
 
   const dropdowns = document.querySelectorAll(".dropdown select");
@@ -39,13 +39,16 @@ const BASE_URL = "https://cdn.jsdeliver.net/npm/@fawazahmed0/currency-api@latest
     const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`; 
     let response = await fetch(URL);
     let data = await response.json();
-    let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
-
-    let finalAmount = amountVal * rate;
-    let conversionRate = document.getElementById("conversionRate");
-    conversionRate.innerText = `1 ${fromCurr.value} = ${rate} ${toCurr.value}`
-    let msg = document.getElementById("result");
-    msg.innerText = `${amountVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+    //console.log(data);
+     let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
+     //console.log(rate);
+     let finalAmount = amountVal * rate;
+    // console.log(finalAmount);
+     let conversionRate = document.getElementById("conversionRate");
+     conversionRate.innerText = `1${fromCurr.value} = ${rate} ${toCurr.value}`
+     //console.log(conversionRate);
+     let msg = document.getElementById("result");
+     msg.innerText = `${amountVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
   }
 
   btn.addEventListener("click",(evt) => {
